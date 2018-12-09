@@ -1,20 +1,24 @@
+
 <h1>つぶやき一覧</h1>
+<p>今日食べたいものをつぶやこう！</p>
 
 <p><%= notice %></p>
 
-<table>
-  <tr>
+
+<table class="tbl"> 
+<tr>
     <th>内容</th>
-  </tr>
-
-<% @birds.each do |bird| %>
-  <tr>
-    <td><%= bird.content %></td>
-    <td><%= link_to '詳細を確認する', bird_path(bird.id) %></td>
-    <td><%= link_to "編集する", edit_bird_path(bird.id), data: { confirm: '本当に編集していいですか？' } %></td>
-    <td><%= link_to '削除する', bird_path(bird.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%></td>
-    </tr>
-<% end %>
-
-<%= link_to '新しくつぶやく', new_bird_path %>
+</tr>
+  <% @birds.each do |bird| %>
+      <tr class="content">
+        <th><%= bird.content %></th>
+          <td class="col-xs-1 col-md-2 edit_link"><%= link_to '詳細を確認する', bird_path(bird.id) %></td>
+          <td class="col-xs-1 col-md-2 edit_link"><%= link_to "編集する", edit_bird_path(bird.id), data: { confirm: '本当に編集していいですか？' } %></td>
+          <td class="col-xs-1 col-md-2 edit_link"><%= link_to '削除する', bird_path(bird.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%></td>
+      </tr>
+      </div>  
+  <% end %>
 </table>
+<div class="btn">
+  <%= link_to '新しくつぶやく', new_bird_path %>
+</div>
